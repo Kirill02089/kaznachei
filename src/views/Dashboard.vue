@@ -8,6 +8,8 @@
         </b-col>
 
         <b-col cols="10">
+
+          <b-button @click="showReportForm">Создать</b-button>
            <base-table
                 :fields="fields"
                 :items="items"
@@ -21,6 +23,7 @@
 
 <script>
 import TheMainLayout from '../components/layouts/TheMainLayout'
+import { MODAL_TYPES } from '../components/modals'
 
 export default {
   name: 'Dashboard',
@@ -33,35 +36,38 @@ export default {
     fields () {
       return [
         { key: 'id', label: '' },
-        { key: 'inn_kr', label: 'ИНН кредитора' },
-        { key: 'inn_dl', label: 'ИНН должника' },
-        { key: 'dolg', label: 'Сумма долга' },
-        { key: 'discount', label: 'Сумма дисконта' }
+        { key: 'inn', label: 'ИНН' },
+        { key: 'kpp', label: 'КПП' },
+        { key: 'nameOrg', label: 'Наименование организации' },
+        { key: 'filial', label: 'ГО/ФЛ' },
+        { key: 'bic', label: 'БИК банка' },
+        { key: 'nameBank', label: 'Наименование банка' },
+        { key: 'currencyBalance', label: 'Валюта' },
+        { key: 'balance', label: 'Сумма в валюте счета' },
+        { key: 'contractType', label: 'ВИД договора' },
+        { key: 'contractDate', label: 'Дата заключения договора' },
+        { key: 'startDate', label: 'Дата начала действия договора' },
+        { key: 'endDate', label: 'Дата окончания договора' },
+        { key: 'percentRate', label: 'Расчетная ставка годовых, %' },
+        { key: 'currencyAmount', label: 'Валюта' },
+        { key: 'amount', label: 'Сумма' }
       ]
     },
     items () {
       return [
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' },
-        { id: '№100', inn_kr: '12345*******', inn_dl: '98765*******', dolg: 'долг 100 000 р', discount: 'выкуплю за 50 000 р' }
+        { id: '1234567890', inn: '1234567890', kpp: '12345679', nameOrg: 'АО "Организация Росатома"', filial: 'ГО', bic: '42202837', nameBank: 'Банк ВТБ (ПАО)', currencyBalance: 'RUR', balance: '20000', contractType: 'Депозит', contractDate: '01.01.2020', startDate: '01.02.2020', endDate: '01.02.2020', percentRate: '5,65', currencyAmount: 'RUR', amount: '10000' },
+        { id: '1234567890', inn: '1234567890', kpp: '12345679', nameOrg: 'АО "Организация Росатома"', filial: 'ГО', bic: '42202837', nameBank: 'Банк ВТБ (ПАО)', currencyBalance: 'RUR', balance: '20000', contractType: 'Депозит', contractDate: '01.01.2020', startDate: '01.02.2020', endDate: '01.02.2020', percentRate: '5,65', currencyAmount: 'RUR', amount: '10000' },
+        { id: '1234567890', inn: '1234567890', kpp: '12345679', nameOrg: 'АО "Организация Росатома"', filial: 'ГО', bic: '42202837', nameBank: 'Банк ВТБ (ПАО)', currencyBalance: 'RUR', balance: '20000', contractType: 'Депозит', contractDate: '01.01.2020', startDate: '01.02.2020', endDate: '01.02.2020', percentRate: '5,65', currencyAmount: 'RUR', amount: '10000' },
+        { id: '1234567890', inn: '1234567890', kpp: '12345679', nameOrg: 'АО "Организация Росатома"', filial: 'ГО', bic: '42202837', nameBank: 'Банк ВТБ (ПАО)', currencyBalance: 'RUR', balance: '20000', contractType: 'Депозит', contractDate: '01.01.2020', startDate: '01.02.2020', endDate: '01.02.2020', percentRate: '5,65', currencyAmount: 'RUR', amount: '10000' },
+        { id: '1234567890', inn: '1234567890', kpp: '12345679', nameOrg: 'АО "Организация Росатома"', filial: 'ГО', bic: '42202837', nameBank: 'Банк ВТБ (ПАО)', currencyBalance: 'RUR', balance: '20000', contractType: 'Депозит', contractDate: '01.01.2020', startDate: '01.02.2020', endDate: '01.02.2020', percentRate: '5,65', currencyAmount: 'RUR', amount: '10000' }
+
       ]
+    }
+  },
+
+  methods: {
+    showReportForm () {
+      this.$root.$emit('bv::show::modal', MODAL_TYPES.REPORT)
     }
   }
 }

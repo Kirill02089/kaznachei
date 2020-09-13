@@ -18,8 +18,8 @@ const routes = [
     component: Dashboard
   },
   {
-    path: '*',
-    redirect: '/'
+    path: '/',
+    redirect: '/login'
   }
 ]
 
