@@ -2,9 +2,10 @@
     <b-table
       hover
       small
-      sticky-header="500px"
-      head-variant="dark"
-      table-variant="dark"
+      striped
+      sticky-header="800px"
+      head-variant="light"
+      table-variant="light"
       v-bind="$attrs"
     ></b-table>
 </template>

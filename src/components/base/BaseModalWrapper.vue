@@ -6,15 +6,15 @@
     hide-footer
     size="lg"
     :id="id"
-    no-close-on-backdrop
+    :no-close-on-backdrop="hideCloseIcon"
   >
-    <!-- <b-icon
+    <b-icon
       v-if="!hideCloseIcon"
       icon="x"
       scale="1.5"
       class="close-icon"
       @click="hide"
-    ></b-icon> -->
+    ></b-icon>
 
     <b-row>
       <b-col cols="12" lg="8" offset-lg="2">

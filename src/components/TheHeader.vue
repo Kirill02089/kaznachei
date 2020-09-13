@@ -60,5 +60,6 @@ export default {
   height: 90px;
   background: url('~@/assets/background.png');
   background-size: cover;
+  background-position: revert;
 }
 </style>

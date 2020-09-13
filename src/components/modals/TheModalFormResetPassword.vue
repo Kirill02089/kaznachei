@@ -1,6 +1,7 @@
 <template>
   <base-modal-wrapper
     :id="currentModalId"
+    hide-close-icon
   >
     <form-reset-password @submit="onSubmit"></form-reset-password>
   </base-modal-wrapper>

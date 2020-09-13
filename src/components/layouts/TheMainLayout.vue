@@ -1,7 +1,7 @@
 <template>
     <b-container
         fluid
-        class="mt-5"
+        class="mt-0"
     >
       <slot />
     </b-container>

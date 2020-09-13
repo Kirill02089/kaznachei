@@ -1,5 +1,8 @@
 <template>
-  <base-modal-wrapper :id="currentModalId" >
+  <base-modal-wrapper
+    :id="currentModalId"
+    hide-close-icon
+  >
     <form-login
       @to-registration="toRegistration"
       @to-reset-password="toResetPassword"
