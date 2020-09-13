@@ -9,7 +9,7 @@
       <b-button
         class="d-block mx-auto my-3 px-5"
         variant="success"
-        @click="BaseModalHide"
+        @click="onSubmit"
       >OK</b-button>
     </div>
   </base-modal-wrapper>
@@ -33,6 +33,13 @@ export default {
 
   components: {
     BaseModalWrapper
+  },
+
+  methods: {
+    onSubmit () {
+      this.BaseModalHide()
+      this.$root.$emit('bv::show::modal', MODAL_TYPES.LOGIN)
+    }
   }
 }
 </script>

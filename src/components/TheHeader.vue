@@ -13,8 +13,8 @@
       is-nav>
 
       <b-navbar-nav class="ml-auto">
-        <b-button class="text-weight-normal mr-3" variant="info"><b-icon icon="person-fill"></b-icon> {{ userText }}</b-button>
-        <b-button class="text-weight-normal " variant="info" @click.prevent="logout"><b-icon icon="power" aria-hidden="true"></b-icon> Logout</b-button>
+        <b-button class="text-weight-normal mr-3" variant="dark"><b-icon icon="person-fill"></b-icon> {{ userText }}</b-button>
+        <b-button class="text-weight-normal " variant="dark" @click.prevent="logout"><b-icon icon="power" aria-hidden="true"></b-icon> Logout</b-button>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>

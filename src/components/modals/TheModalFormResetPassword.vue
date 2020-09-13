@@ -2,7 +2,7 @@
   <base-modal-wrapper
     :id="currentModalId"
   >
-    <form-reset-password></form-reset-password>
+    <form-reset-password @submit="onSubmit"></form-reset-password>
   </base-modal-wrapper>
 </template>
 
@@ -26,6 +26,13 @@ export default {
   components: {
     BaseModalWrapper,
     FormResetPassword
+  },
+
+  methods: {
+    onSubmit () {
+      this.BaseModalHide()
+      this.$root.$emit('bv::show::modal', MODAL_TYPES.CHECK_EMAIL)
+    }
   }
 }
 </script>

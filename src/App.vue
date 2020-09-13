@@ -11,6 +11,7 @@
     <the-modal-form-registration></the-modal-form-registration>
     <!-- <the-modal-form-login></the-modal-form-login> -->
     <the-modal-form-reset-password></the-modal-form-reset-password>
+    <the-modal-check-email></the-modal-check-email>
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import TheFooter from './components/TheFooter'
 import TheModalFormRegistration from './components/modals/TheModalFormRegistration'
 // import TheModalFormLogin from './components/modals/TheModalFormLogin'
 import TheModalFormResetPassword from './components/modals/TheModalFormResetPassword'
+import TheModalCheckEmail from './components/modals/TheModalCheckEmail'
 
 export default {
   name: 'App',
@@ -28,6 +30,7 @@ export default {
     TheFooter,
     TheModalFormRegistration,
     // TheModalFormLogin,
+    TheModalCheckEmail,
     TheModalFormResetPassword
   },
 
