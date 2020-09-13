@@ -21,12 +21,64 @@
 
         <b-col cols="10">
           <b-row class="align-items-center pl-0 pt-3">
-            <b-col><h4 class="">Отчёты</h4></b-col>
-            <b-col><b-button @click="showReportForm">Создать</b-button></b-col>
+            <b-col><h4 class="d-inline mr-3">Мои отчёты</h4> <b-button @click="showReportForm">Создать</b-button></b-col>
           </b-row>
 
+          <b-row class="mt-3">
+              <b-form-group
+                label="Фильтр"
+                label-cols-sm="3"
+                label-align-sm="right"
+                label-size="sm"
+                label-for="filterInput"
+                class="mb-0"
+              >
+                <b-input-group size="sm">
+                  <b-form-input
+                    v-model="filter"
+                    type="search"
+                    id="filterInput"
+                    placeholder=""
+                  ></b-form-input>
+                  <b-input-group-append>
+                    <b-button :disabled="!filter" @click="filter = ''">Очистить</b-button>
+                  </b-input-group-append>
+                </b-input-group>
+              </b-form-group>
+          </b-row>
+
+          <!-- <b-row>
+              <b-col>
+                <b-form-group
+                label="Фильтрация по"
+                label-cols-sm="3"
+                label-align-sm="right"
+                label-size="sm"
+                description="Leave all unchecked to filter on all data"
+                class="mb-0">
+                <b-form-checkbox-group v-model="filterOn" class="mt-1">
+                  <b-form-checkbox
+                    v-for="(field, index) in fields"
+                    :key="`fields_${index}`"
+                    :value="field.key">{{ field.label }}</b-form-checkbox>
+                </b-form-checkbox-group>
+              </b-form-group>
+              </b-col>
+          </b-row> -->
+
           <b-row>
-            <b-table class="ml-2 mt-3 dashboard-table text-center" :items="items" :fields="fields" striped small bordered sticky-header="800px" responsive="sm">
+            <b-table
+              class="ml-2 mt-3 dashboard-table text-center"
+              :items="items"
+              :fields="fields"
+              striped
+              small
+              bordered
+              sticky-header="800px"
+              responsive="sm"
+              :filter="filter"
+              :filterIncludedFields="filterOn"
+            >
               <template v-slot:cell(show_details)="row">
                 <b-button variant="dark" size="sm" @click="row.toggleDetails" class="mr-2">
                   <b-icon id="tooltip-target-1" :icon="row.detailsShowing ? 'chevron-bar-contract' : 'chevron-bar-expand'" variant="white"></b-icon>
@@ -76,6 +128,8 @@
           </b-row>
         </b-col>
       </b-row>
+      <notifications group="warning" position="top left" />
+
     </the-main-layout>
 </template>
 
@@ -88,6 +142,13 @@ export default {
 
   components: {
     TheMainLayout
+  },
+
+  data () {
+    return {
+      filter: null,
+      filterOn: null
+    }
   },
 
   computed: {
@@ -153,6 +214,16 @@ export default {
     showReportForm () {
       this.$root.$emit('bv::show::modal', MODAL_TYPES.REPORT)
     }
+  },
+
+  mounted () {
+    this.$notify({
+      group: 'warning',
+      title: 'Напоминание',
+      text: 'У вас есть неотправленные отчёты',
+      type: 'warn',
+      duration: 10000
+    })
   }
 }
 </script>
