@@ -1,0 +1,32 @@
+@import 'bootstrap.scss';
+@import '../assets/fonts/OpenSansCondensed/osanscondensed.css';
+
+html, 
+body,
+#app {
+    font-family: 'Open Sans Condensed';
+    font-size: 24px;
+    height: 100%;
+}
+
+h1,
+h2,
+h3 {
+    // font-size: 48px;
+    font-weight: bold;
+}
+
+h1, .h1 {
+    font-size: 2rem;
+}
+
+button,
+.btn {
+    font-weight: bold;
+    padding: .5rem;
+    line-height: 1;
+}
+
+.text-weight-normal {
+    font-weight: normal !important;
+}

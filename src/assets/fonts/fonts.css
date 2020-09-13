@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Open_Sans_Condensed';
+    font-style: normal;
+    font-weight: 300;
+    src: url('./OpenSansCondensed/OpenSansCondensed-Light.ttf') format('ttf')
+}
+
+@font-face {
+    font-family: 'Open_Sans_Condensed';
+    font-style: normal;
+    font-weight: bold;
+    src: url('./OpenSansCondensed/OpenSansCondensed-Bold.ttf') format('ttf'),
+}
+
+@font-face {
+    font-family: 'Open_Sans_Condensed';
+    font-style: italic;
+    font-weight: normal;
+    src: url('./OpenSansCondensed/OpenSansCondensed-LightItalic.ttf') format('ttf'),
+}

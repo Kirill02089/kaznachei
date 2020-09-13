@@ -1,0 +1,19 @@
+$success: #419641;
+$warning: #F0AD4E;
+$danger: #FD153C;
+$dark: #354A67;
+$secondary: #E3EAF2;
+
+// $theme-colors: () !default;
+// $theme-colors: map-merge(
+//   (
+//     'dark2': $dark,
+//   ),
+//   $theme-colors
+// );
+
+
+// Bootstrap and its default variables
+@import '../../node_modules/bootstrap/scss/bootstrap';
+// BootstrapVue and its default variables
+@import '../../node_modules/bootstrap-vue/src/index.scss';
