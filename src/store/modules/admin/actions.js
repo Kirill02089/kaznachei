@@ -12,5 +12,8 @@ export default {
     const user = await api.login(userData)
 
     commit(mutationTypes.MUTATION_SET_USER, user)
+  },
+  [actionTypes.ACTION_LOGOUT] ({ commit }, userData) {
+    commit(mutationTypes.MUTATION_SET_USER, {})
   }
 }

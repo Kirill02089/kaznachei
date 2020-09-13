@@ -1,5 +1,5 @@
 <template>
-  <base-modal-wrapper :id="currentModalId">
+  <base-modal-wrapper :id="currentModalId" >
     <form-login
       @to-registration="toRegistration"
       @to-reset-password="toResetPassword"
@@ -42,8 +42,9 @@ export default {
     },
 
     onSubmit (data) {
+      this.BaseModalHide()
       this.$store.dispatch('ADMIN/LOGIN', data)
-      this.$router.push('/dashboard')
+      this.$router.push('/dashboard').catch(() => {})
     }
   }
 }

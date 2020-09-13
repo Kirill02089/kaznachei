@@ -9,9 +9,9 @@
           <b-form-input
             id="input-1"
             v-model="form.email"
-            type="email"
+            type="text"
             required
-            placeholder="Электронная почта"
+            placeholder="Введите логин"
             class="mt-4"
           ></b-form-input>
 

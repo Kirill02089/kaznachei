@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <TheHeader />
+    <TheHeader v-if="hasNav" />
 
     <main>
       <router-view></router-view>
     </main>
 
-    <TheFooter class="d-none" />
+    <TheFooter  v-if="hasNav" class="d-none" />
 
     <the-modal-form-registration></the-modal-form-registration>
-    <the-modal-form-login></the-modal-form-login>
+    <!-- <the-modal-form-login></the-modal-form-login> -->
     <the-modal-form-reset-password></the-modal-form-reset-password>
-    <the-modal-check-email></the-modal-check-email>
   </div>
 </template>
 
@@ -19,9 +18,8 @@
 import TheHeader from './components/TheHeader'
 import TheFooter from './components/TheFooter'
 import TheModalFormRegistration from './components/modals/TheModalFormRegistration'
-import TheModalFormLogin from './components/modals/TheModalFormLogin'
+// import TheModalFormLogin from './components/modals/TheModalFormLogin'
 import TheModalFormResetPassword from './components/modals/TheModalFormResetPassword'
-import TheModalCheckEmail from './components/modals/TheModalCheckEmail'
 
 export default {
   name: 'App',
@@ -29,9 +27,14 @@ export default {
     TheHeader,
     TheFooter,
     TheModalFormRegistration,
-    TheModalFormLogin,
-    TheModalFormResetPassword,
-    TheModalCheckEmail
+    // TheModalFormLogin,
+    TheModalFormResetPassword
+  },
+
+  computed: {
+    hasNav () {
+      return this.$route.path !== '/login'
+    }
   }
 }
 </script>

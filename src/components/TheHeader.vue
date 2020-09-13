@@ -2,12 +2,8 @@
   <b-navbar
     variant="secondary"
     toggleable="lg"
-    class="p-0"
+    class="p-0 navbar"
   >
-    <b-navbar-brand
-      href="/"
-      class="bg-dark text-white header-logo d-flex justify-content-center align-items-center"
-    >Dagent.ru</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -15,15 +11,10 @@
       id="nav-collapse"
       class="pr-2"
       is-nav>
-      <b-navbar-nav class="ml-auto">
-        <b-nav-item class="px-3" to="/">Главная</b-nav-item>
-        <b-nav-item class="px-3" to="/about">О нас</b-nav-item>
-        <b-nav-item class="px-3" to="/introduction">Как работает сайт</b-nav-item>
-      </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto">
-        <b-nav-item @click.prevent="showLoginFormModal">Вход</b-nav-item>
-        <b-nav-item @click.prevent="showRegistrationFormModal">Регистрация</b-nav-item>
+        <b-button class="text-weight-normal mr-3" variant="info"><b-icon icon="person-fill"></b-icon> {{ userText }}</b-button>
+        <b-button class="text-weight-normal " variant="info" @click.prevent="logout"><b-icon icon="power" aria-hidden="true"></b-icon> Logout</b-button>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -35,6 +26,20 @@ import { MODAL_TYPES } from './modals'
 export default {
   name: 'TheHeader',
 
+  computed: {
+    isAdmin () {
+      return this.$store.getters['ADMIN/IS_ADMIN']
+    },
+
+    isUser () {
+      return this.$store.getters['ADMIN/IS_USER']
+    },
+
+    userText () {
+      return this.isAdmin ? 'Админ' : 'Пользователь'
+    }
+  },
+
   methods: {
     showRegistrationFormModal () {
       this.$root.$emit('bv::show::modal', MODAL_TYPES.REGISTRATION)
@@ -42,15 +47,16 @@ export default {
 
     showLoginFormModal () {
       this.$root.$emit('bv::show::modal', MODAL_TYPES.LOGIN)
+    },
+
+    logout () {
+      this.$router.push('/login')
     }
   }
 }
 </script>
 <style lang="scss" scoped>
-.header {
-  &-logo {
-    min-width: 220px;
-    min-height: 70px;
-  }
+.navbar {
+ height: 90px;
 }
 </style>

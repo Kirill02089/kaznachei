@@ -1,10 +1,10 @@
 @import 'bootstrap.scss';
-@import '../assets/fonts/OpenSansCondensed/osanscondensed.css';
+@import '../assets/fonts.css';
 
 html, 
 body,
 #app {
-    font-family: 'Open Sans Condensed';
+    font-family: 'HelveticaRegular';
     font-size: 24px;
     height: 100%;
 }

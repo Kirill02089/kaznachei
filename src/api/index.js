@@ -2,7 +2,7 @@ export default {
   login: ({ email, password }) => {
     return new Promise((resolve) => {
       const user = { role: 'user' }
-      if (email === 'admin@email.com') {
+      if (email === 'admin') {
         user.role = 'admin'
       }
 
