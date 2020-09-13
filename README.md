@@ -1,4 +1,4 @@
-# crime
+# Kaznachei
 
 ## Project setup
 ```
