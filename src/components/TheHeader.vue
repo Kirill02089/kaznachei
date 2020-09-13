@@ -57,6 +57,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .navbar {
- height: 90px;
+  height: 90px;
+  background: url('~@/assets/background.png');
+  background-size: cover;
 }
 </style>

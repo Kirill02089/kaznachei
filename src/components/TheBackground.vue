@@ -15,5 +15,8 @@ export default {
   background: url('~@/assets/background.png');
   background-size: cover;
   filter: blur(12px);
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 </style>
